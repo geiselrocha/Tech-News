@@ -33,6 +33,7 @@ def search_by_date(date):
 # Requisito 9
 def search_by_category(category):
     news = search_news({"category": {"$regex": category, "$options": "i"}})
+
     result = []
 
     for new in news:
