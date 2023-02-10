@@ -32,4 +32,11 @@ def search_by_date(date):
 
 # Requisito 9
 def search_by_category(category):
-    """Seu código deve vir aqui"""
+    news = search_news({"category": {"$regex": category, "$options": "i"}})
+    result = []
+
+    for new in news:
+        if category.lower() in new["category"].lower():
+            result.append((new["title"], new["url"]))
+
+    return result
